@@ -188,6 +188,23 @@ return require('packer').startup(function(use)
   }
 -- }}}
 
+  -- Git integration
+  use {
+    "lewis6991/gitsigns.nvim",
+    event = { "BufRead", "BufNewFile" },
+    config = function()
+      require("config.gitsigns").config()
+    end,
+  }
+
+  -- Indentation
+  use {
+    "lukas-reineke/indent-blankline.nvim",
+    config = function()
+      require("config.indent-line").config()
+    end,
+  }
+
   use 'morhetz/gruvbox'
   use 'euclidianAce/BetterLua.vim'
 end)
