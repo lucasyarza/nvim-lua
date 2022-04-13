@@ -3,8 +3,8 @@ if not status_ok then
   return
 end
 
-local status_ok, lsp_installer = pcall(require, "nvim-lsp-installer")
-if not status_ok then
+local status_ok_lsp_installer, lsp_installer = pcall(require, "nvim-lsp-installer")
+if not status_ok_lsp_installer then
   return
 end
 
