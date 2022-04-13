@@ -87,13 +87,21 @@ return require('packer').startup(function(use)
     requires = "nvim-cmp",
   }
 
+  -- LSP manager
   use 'williamboman/nvim-lsp-installer'
+
   -- Built-in LSP && LSP manager
   use {
     "neovim/nvim-lspconfig",
     config = function()
       require "config.lsp"
     end,
+  }
+
+  -- LSP symbols
+  use {
+    "simrat39/symbols-outline.nvim",
+    cmd = "SymbolsOutline",
   }
 
   -- Snippet collection

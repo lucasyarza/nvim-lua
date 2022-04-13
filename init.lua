@@ -3,6 +3,7 @@ vim.opt.rtp:append(vim.fn.stdpath "config")
 local sources = {
   "nvim-plugins.plugins",
   "general.settings",
+  "config.symbols-outline",
   "keymapping"
 }
 
