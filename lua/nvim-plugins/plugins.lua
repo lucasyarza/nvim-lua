@@ -4,17 +4,36 @@ if not packer_status_ok then
 end
 
 return require('packer').startup(function(use)
+-- Global {{{
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
 
   -- Lua functions
   use 'nvim-lua/plenary.nvim'
+-- }}}
 
+-- UI {{{
   -- Neovim UI Enhancer
   use 'MunifTanjim/nui.nvim'
 
-  -- Icons
-  use 'kyazdani42/nvim-web-devicons'
+  -- Icons {{{
+  use {
+    'kyazdani42/nvim-web-devicons',
+    config = function()
+      require('config.devicons').config()
+    end,
+  }
+  -- }}}
+
+  -- Lualine {{{
+    use {
+      'nvim-lualine/lualine.nvim',
+      requires = { 'kyazdani42/nvim-web-devicons', opt = true },
+      config = function()
+        require('config.lualine').config()
+      end,
+    }
+  -- }}}
 
   -- Tabular
   use 'godlygeek/tabular'
@@ -40,7 +59,9 @@ return require('packer').startup(function(use)
       require('config.smart-splits').config()
     end,
   }
+-- }}}
 
+-- Treesitter {{{
   -- Syntax highlighting
   use { 
     'nvim-treesitter/nvim-treesitter', 
@@ -50,6 +71,43 @@ return require('packer').startup(function(use)
     end,
   }
 
+  -- Parenthesis highlighting
+  use{
+    "p00f/nvim-ts-rainbow",
+    require = "nvim-treesitter",
+  }
+
+  -- Autoclose tags
+  use{
+    "windwp/nvim-ts-autotag",
+    require = "nvim-treesitter",
+  }
+
+  use{
+    'JoosepAlviste/nvim-ts-context-commentstring',
+    require = 'nvim-treesitter'
+  }
+
+  -- Commenting
+  use{
+    "numToStr/Comment.nvim",
+    event = { "BufRead", "BufNewFile" },
+    config = function()
+      require("config.comment").config()
+    end,
+  }
+
+  -- Autopairs
+  use {
+    "windwp/nvim-autopairs",
+    event = "InsertEnter",
+    config = function()
+      require("config.autopairs").config()
+    end,
+  }
+-- }}}
+
+-- Completion engine {{{
   -- Completion engine
   use {
     'hrsh7th/nvim-cmp',
@@ -86,7 +144,9 @@ return require('packer').startup(function(use)
     "hrsh7th/cmp-nvim-lsp",
     requires = "nvim-cmp",
   }
+--}}}
 
+-- Language Server Protocol {{{
   -- LSP manager
   use 'williamboman/nvim-lsp-installer'
 
@@ -103,7 +163,9 @@ return require('packer').startup(function(use)
     "simrat39/symbols-outline.nvim",
     cmd = "SymbolsOutline",
   }
+-- }}}
 
+-- Snippets {{{
   -- Snippet collection
   use {
     "rafamadriz/friendly-snippets",
@@ -124,6 +186,7 @@ return require('packer').startup(function(use)
     "saadparwaiz1/cmp_luasnip",
     require = "nvim-cmp",
   }
+-- }}}
 
   use 'morhetz/gruvbox'
   use 'euclidianAce/BetterLua.vim'
