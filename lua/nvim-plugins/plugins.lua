@@ -246,4 +246,5 @@ return packer.startup(function(use)
 
   use 'morhetz/gruvbox'
   use 'euclidianAce/BetterLua.vim'
+  use 'rafcamlet/nvim-luapad'
 end)

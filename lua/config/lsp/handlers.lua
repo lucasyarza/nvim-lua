@@ -1,19 +1,14 @@
 local M = {}
 
 function M.setup()
-  local signs = {
-    { name = "DiagnosticSignError", text = "" },
-    { name = "DiagnosticSignWarn", text = "" },
-    { name = "DiagnosticSignHint", text = "" },
-    { name = "DiagnosticSignInfo", text = "" },
-  }
-
-  for _, sign in ipairs(signs) do
-    vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = "" })
+  local signs = { Error = ' ', Warn = ' ', Hint = ' ', Info = ' ' }
+  for type, icon in pairs(signs) do
+    local hl = 'DiagnosticSign' .. type
+    vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
   end
 
   local config = {
-    virtual_text = true,
+    virtual_text = false,
     signs = {
       active = signs,
     },
@@ -22,22 +17,22 @@ function M.setup()
     severity_sort = true,
     float = {
       focusable = false,
-      style = "minimal",
-      border = "rounded",
-      source = "always",
-      header = "",
-      prefix = "",
+      style = 'minimal',
+      border = 'rounded',
+      source = 'always',
+      header = '',
+      prefix = '',
     },
   }
 
   vim.diagnostic.config(config)
 
-  vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-    border = "rounded",
+  vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, {
+    border = 'rounded',
   })
 
-  vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
-    border = "rounded",
+  vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(vim.lsp.handlers.signature_help, {
+    border = 'rounded',
   })
 end
 
@@ -57,22 +52,22 @@ local function lsp_highlight_document(client)
 end
 
 M.on_attach = function(client, bufnr)
-  if client.name == "tsserver" then
+  if client.name == 'tsserver' then
     client.resolved_capabilities.document_formatting = false
-  elseif client.name == "jsonls" then
+  elseif client.name == 'jsonls' then
     client.resolved_capabilities.document_formatting = false
-  elseif client.name == "html" then
+  elseif client.name == 'html' then
     client.resolved_capabilities.document_formatting = false
-  elseif client.name == "sumneko_lua" then
+  elseif client.name == 'sumneko_lua' then
     client.resolved_capabilities.document_formatting = false
   end
 
-  vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting()' ]]
+  vim.cmd([[ command! Format execute 'lua vim.lsp.buf.formatting()' ]])
   lsp_highlight_document(client)
 end
 
 M.capabilities = vim.lsp.protocol.make_client_capabilities()
-M.capabilities.textDocument.completion.completionItem.documentationFormat = { "markdown", "plaintext" }
+M.capabilities.textDocument.completion.completionItem.documentationFormat = { 'markdown', 'plaintext' }
 M.capabilities.textDocument.completion.completionItem.snippetSupport = true
 M.capabilities.textDocument.completion.completionItem.preselectSupport = true
 M.capabilities.textDocument.completion.completionItem.insertReplaceSupport = true
@@ -82,9 +77,9 @@ M.capabilities.textDocument.completion.completionItem.commitCharactersSupport = 
 M.capabilities.textDocument.completion.completionItem.tagSupport = { valueSet = { 1 } }
 M.capabilities.textDocument.completion.completionItem.resolveSupport = {
   properties = {
-    "documentation",
-    "detail",
-    "additionalTextEdits",
+    'documentation',
+    'detail',
+    'additionalTextEdits',
   },
 }
 
