@@ -60,7 +60,7 @@ function M.config()
       native_menu = false,
     },
     completion = {
-      keyword_length = 2,
+      keyword_length = 1,
     },
     mapping = {
       ["<C-k>"] = cmp.mapping.select_prev_item(),

@@ -210,6 +210,15 @@ return require('packer').startup(function(use)
     branch = 'master'
   }
 
+  -- Terminal
+  use {
+    "akinsho/nvim-toggleterm.lua",
+    cmd = "ToggleTerm",
+    config = function()
+      require("config.toggleterm").config()
+    end,
+  }
+
   use 'morhetz/gruvbox'
   use 'euclidianAce/BetterLua.vim'
 end)
