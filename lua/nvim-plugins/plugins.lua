@@ -3,93 +3,93 @@ if not packer_status_ok then
   return
 end
 
-return require('packer').startup(function(use)
--- Global {{{
+return packer.startup(function(use)
+  -- Global {{{
   -- Packer can manage itself
-  use 'wbthomason/packer.nvim'
+  use "wbthomason/packer.nvim"
 
   -- Lua functions
-  use 'nvim-lua/plenary.nvim'
--- }}}
+  use "nvim-lua/plenary.nvim"
+  -- }}}
 
--- UI {{{
+  -- UI {{{
   -- Neovim UI Enhancer
-  use 'MunifTanjim/nui.nvim'
+  use "MunifTanjim/nui.nvim"
 
   -- Icons {{{
   use {
-    'kyazdani42/nvim-web-devicons',
+    "kyazdani42/nvim-web-devicons",
     config = function()
-      require('config.devicons').config()
+      require("config.devicons").config()
     end,
   }
   -- }}}
 
   -- Lualine {{{
-    use {
-      'nvim-lualine/lualine.nvim',
-      requires = { 'kyazdani42/nvim-web-devicons', opt = true },
-      config = function()
-        require('config.lualine').config()
-      end,
-    }
+  use {
+    "nvim-lualine/lualine.nvim",
+    requires = { "kyazdani42/nvim-web-devicons", opt = true },
+    config = function()
+      require("config.lualine").config()
+    end,
+  }
   -- }}}
 
   -- Tabular
-  use 'godlygeek/tabular'
+  use "godlygeek/tabular"
 
   -- File explorer
   use {
-    'nvim-neo-tree/neo-tree.nvim', 
-    branch = "v2.x", 
-    requires = { 
-     "nvim-lua/plenary.nvim",
-     "kyazdani42/nvim-web-devicons", -- not strictly required, but recommended
-     "MunifTanjim/nui.nvim",
+    "nvim-neo-tree/neo-tree.nvim",
+    branch = "v2.x",
+    requires = {
+      "nvim-lua/plenary.nvim",
+      "kyazdani42/nvim-web-devicons", -- not strictly required, but recommended
+      "MunifTanjim/nui.nvim",
     },
     config = function()
-      require('config.neo-tree').config()
+      require("config.neo-tree").config()
     end,
   }
 
   -- Smarter Splits
   use {
-    'mrjones2014/smart-splits.nvim',
+    "mrjones2014/smart-splits.nvim",
     config = function()
-      require('config.smart-splits').config()
+      require("config.smart-splits").config()
     end,
   }
--- }}}
+  -- }}}
 
--- Treesitter {{{
+  -- Treesitter {{{
   -- Syntax highlighting
-  use { 
-    'nvim-treesitter/nvim-treesitter', 
-    run = ':TSUpdate',
+  use {
+    "nvim-treesitter/nvim-treesitter",
+    run = ":TSUpdate",
     config = function()
       require("config.treesitter").config()
     end,
   }
 
   -- Parenthesis highlighting
-  use{
+  use {
     "p00f/nvim-ts-rainbow",
     require = "nvim-treesitter",
   }
 
   -- Autoclose tags
-  use{
+  use {
     "windwp/nvim-ts-autotag",
     require = "nvim-treesitter",
   }
 
-  use{
-    'JoosepAlviste/nvim-ts-context-commentstring',
-    require = 'nvim-treesitter'
+  use {
+    "JoosepAlviste/nvim-ts-context-commentstring",
+    require = "nvim-treesitter",
   }
 
   -- Commenting
-  use{
+  use {
     "numToStr/Comment.nvim",
     event = { "BufRead", "BufNewFile" },
     config = function()
@@ -105,27 +105,27 @@ return require('packer').startup(function(use)
       require("config.autopairs").config()
     end,
   }
--- }}}
+  -- }}}
 
--- Completion engine {{{
+  -- Completion engine {{{
   -- Completion engine
   use {
-    'hrsh7th/nvim-cmp',
-     config = function()
+    "hrsh7th/nvim-cmp",
+    config = function()
       require("config.cmp").config()
     end,
   }
 
   use {
-    'tzachar/cmp-tabnine',
-    run='./install.sh',
-    requires = 'hrsh7th/nvim-cmp',
+    "tzachar/cmp-tabnine",
+    run = "./install.sh",
+    requires = "hrsh7th/nvim-cmp",
     config = function()
-      require('config.cmp-tabnine').config()
+      require("config.cmp-tabnine").config()
     end,
   }
 
-  use 'onsails/lspkind-nvim'
+  use "onsails/lspkind-nvim"
 
   -- Buffer completion source
   use {
@@ -144,11 +144,11 @@ return require('packer').startup(function(use)
     "hrsh7th/cmp-nvim-lsp",
     requires = "nvim-cmp",
   }
---}}}
+  --}}}
 
--- Language Server Protocol {{{
+  -- Language Server Protocol {{{
   -- LSP manager
-  use 'williamboman/nvim-lsp-installer'
+  use "williamboman/nvim-lsp-installer"
 
   -- Built-in LSP && LSP manager
   use {
@@ -163,9 +163,9 @@ return require('packer').startup(function(use)
     "simrat39/symbols-outline.nvim",
     cmd = "SymbolsOutline",
   }
--- }}}
+  -- }}}
 
--- Snippets {{{
+  -- Snippets {{{
   -- Snippet collection
   use {
     "rafamadriz/friendly-snippets",
@@ -186,7 +186,7 @@ return require('packer').startup(function(use)
     "saadparwaiz1/cmp_luasnip",
     require = "nvim-cmp",
   }
--- }}}
+  -- }}}
 
   -- Git integration
   use {
@@ -206,8 +206,8 @@ return require('packer').startup(function(use)
   }
 
   use {
-    'mg979/vim-visual-multi',
-    branch = 'master'
+    "mg979/vim-visual-multi",
+    branch = "master",
   }
 
   -- Terminal
@@ -219,6 +219,22 @@ return require('packer').startup(function(use)
     end,
   }
 
-  use 'morhetz/gruvbox'
-  use 'euclidianAce/BetterLua.vim'
+  use {
+    "jose-elias-alvarez/null-ls.nvim",
+    event = { "BufRead", "BufNewFile" },
+    requires = { "nvim-lua/plenary.nvim" },
+    config = function()
+      require("config.null-ls").config()
+    end,
+  }
+
+  use {
+    "j-hui/fidget.nvim",
+    config = function()
+      require("fidget").setup {}
+    end,
+  }
+
+  use "morhetz/gruvbox"
+  use "euclidianAce/BetterLua.vim"
 end)
