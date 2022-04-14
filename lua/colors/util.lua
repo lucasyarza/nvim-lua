@@ -2,7 +2,7 @@ local M = {}
 
 function M.get_colors_from_colorscheme(hl_color_name)
   local ret = vim.api.nvim_get_hl_by_name(hl_color_name, true)
-  local color = string.format('#%X', tostring(ret.foreground))
+  local color = string.format('#%X', tostring(ret.foreground or ret.background))
   return color
 end
 

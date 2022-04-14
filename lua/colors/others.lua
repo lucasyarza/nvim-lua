@@ -1,0 +1,145 @@
+local others = {
+
+  -- Telescope {{{
+  TelescopeResultsTitle = { fg = C.green },
+  TelescopePromptTitle = { fg = C.blue },
+  TelescopePreviewTitle = { fg = C.purple },
+  TelescopeResultsBorder = { fg = C.fg },
+  TelescopePromptBorder = { fg = C.fg },
+  TelescopePreviewBorder = { fg = C.fg },
+  TelescopeSelectionCaret = { fg = C.red },
+  TelescopeMatching = { fg = C.yellow },
+  TelescopeSelection = { bg = C.grey },
+  TelescopeMultiSelection = { fg = C.blue },
+  TelescopeMultiIcon = { fg = C.blue },
+  TelescopeNormal = { fg = C.fg, bg = C.bg },
+  TelescopePreviewNormal = { fg = C.fg, bg = C.bg },
+  TelescopePromptNormal = { fg = C.fg, bg = C.bg },
+  TelescopeResultsNormal = { fg = C.fg, bg = C.bg },
+  TelescopeBorder = { fg = C.fg },
+  TelescopeTitle = { fg = C.fg },
+  TelescopePromptCounter = { fg = C.grey },
+  TelescopePromptPrefix = { fg = C.blue },
+  TelescopePreviewLine = { bg = C.grey },
+  TelescopePreviewMatch = { fg = C.yellow },
+  TelescopePreviewPipe = { fg = C.yellow },
+  TelescopePreviewCharDev = { fg = C.yellow },
+  TelescopePreviewDirectory = { fg = C.blue },
+  TelescopePreviewBlock = { fg = C.yellow },
+  TelescopePreviewLink = { fg = C.blue },
+  TelescopePreviewSocket = { fg = C.purple },
+  TelescopePreviewRead = { fg = C.yellow },
+  TelescopePreviewWrite = { fg = C.purple },
+  TelescopePreviewExecute = { fg = C.green },
+  TelescopePreviewHyphen = { fg = C.grey },
+  TelescopePreviewSticky = { fg = C.blue },
+  TelescopePreviewSize = { fg = C.green },
+  TelescopePreviewUser = { fg = C.yellow },
+  TelescopePreviewGroup = { fg = C.yellow },
+  TelescopePreviewDate = { fg = C.blue },
+  TelescopePreviewMessage = { fg = C.fg },
+  TelescopePreviewMessageFillchar = { fg = C.fg },
+  TelescopeResultsClass = { fg = C.yellow },
+  TelescopeResultsConstant = { fg = C.yellow },
+  TelescopeResultsField = { fg = C.red },
+  TelescopeResultsFunction = { fg = C.blue },
+  TelescopeResultsMethod = { fg = C.blue },
+  TelescopeResultsOperator = { fg = C.cyan },
+  TelescopeResultsStruct = { fg = C.purple },
+  TelescopeResultsVariable = { fg = C.red },
+  TelescopeResultsLineNr = { fg = C.grey },
+  TelescopeResultsIdentifier = { fg = C.blue },
+  TelescopeResultsNumber = { fg = C.orange },
+  TelescopeResultsComment = { fg = C.grey },
+  TelescopeResultsSpecialComment = { fg = C.grey },
+  TelescopeResultsDiffChange = { fg = C.none, bg = C.yellow },
+  TelescopeResultsDiffAdd = { fg = C.none, bg = C.green },
+  TelescopeResultsDiffDelete = { fg = C.none, bg = C.red },
+  TelescopeResultsDiffUntracked = { fg = C.none, bg = C.grey },
+  -- }}}
+
+  --Notify {{{
+  NotifyERRORBorder = { fg = C.red },
+  NotifyWARNBorder = { fg = C.orange },
+  NotifyINFOBorder = { fg = C.green },
+  NotifyDEBUGBorder = { fg = C.cyan },
+  NotifyTRACERBorder = { fg = C.purple },
+  NotifyERRORIcon = { fg = C.red },
+  NotifyWARNIcon = { fg = C.orange },
+  NotifyINFOIcon = { fg = C.green },
+  NotifyDEBUGIcon = { fg = C.cyan },
+  NotifyTRACEIcon = { fg = C.purple },
+  NotifyERRORTitle = { fg = C.red },
+  NotifyWARNTitle = { fg = C.orange },
+  NotifyINFOTitle = { fg = C.green },
+  NotifyDEBUGTitle = { fg = C.cyan },
+  NotifyTRACETitle = { fg = C.purple },
+  NotifyERRORBody = { fg = C.fg },
+  NotifyWARNBody = { fg = C.fg },
+  NotifyINFOBody = { fg = C.fg },
+  NotifyDEBUGBody = { fg = C.fg },
+  NotifyTRACEBody = { fg = C.fg },
+  NotifyLogTime = { fg = C.grey },
+  NotifyLogTitle = { fg = C.blue },
+  -- }}}
+
+  -- Neo-Tree {{{
+  NeoTreeDirectoryIcon = { fg = C.blue },
+  NeoTreeRootName = { fg = C.fg, style = 'bold' },
+  NeoTreeDirectoryName = { fg = C.fg2 },
+  NeoTreeFileName = { fg = C.fg },
+  NeoTreeFileIcon = { fg = C.fg },
+  NeoTreeFileNameOpened = { fg = C.green },
+  NeoTreeIndentMarker = { fg = C.blue },
+  NeoTreeGitAdded = { fg = C.green },
+  NeoTreeGitConflict = { fg = C.red },
+  NeoTreeGitModified = { fg = C.orange },
+  NeoTreeGitUntracked = { fg = C.yellow },
+  NeoTreeNormal = { bg = C.bg },
+  NeoTreeNormalNC = { bg = C.bg },
+  NeoTreeSymbolicLinkTarget = { fg = C.cyan },
+  -- }}}
+
+  -- VimWiki {{{
+  VimwikiLink = { fg = C.cyan, bg = C.none },
+  VimwikiHeaderChar = { fg = C.grey, bg = C.none },
+  VimwikiHR = { fg = C.yellow, bg = C.none },
+  VimwikiList = { fg = C.orange, bg = C.orange },
+  VimwikiTag = { fg = C.orange, bg = C.orange },
+  VimwikiMarkers = { fg = C.grey, bg = C.none },
+  VimwikiHeader1 = { fg = C.orange, bg = C.none, style = 'bold' },
+  VimwikiHeader2 = { fg = C.green, bg = C.none, style = 'bold' },
+  VimwikiHeader3 = { fg = C.blue, bg = C.none, style = 'bold' },
+  VimwikiHeader4 = { fg = C.cyan, bg = C.none, style = 'bold' },
+  VimwikiHeader5 = { fg = C.yellow, bg = C.none, style = 'bold' },
+  VimwikiHeader6 = { fg = C.purple, bg = C.none, style = 'bold' },
+  -- }}}
+
+  -- IndentBlankLine {{{
+  IndentBlanklineSpaceChar = { fg = C.grey, style = 'nocombine' },
+  IndentBlanklineChar = { fg = C.grey, style = 'nocombine' },
+  IndentBlanklineContextStart = { fg = C.grey, style = 'underline' },
+  IndentBlanklineContextChar = { fg = C.grey, style = 'nocombine' },
+  IndentBlanklineSpaceCharBlankline = { fg = C.grey, style = 'nocombine' },
+  -- }}}
+
+  -- GitSigns {{{
+  GitSignsAdd = { fg = C.green, bg = C.signcolumn },
+  GitSignsChange = { fg = C.orange, bg = C.signcolumn },
+  GitSignsDelete = { fg = C.red, bg = C.signcolumn },
+  MoreMsg = { fg = C.green, style = 'bold' },
+  ModeMsg = { fg = C.grey, style = 'bold' },
+  -- }}}
+
+  -- WhichKey {{{
+  WhichKeyFloat = { fg = C.fg },
+  WhichKeyDesc = { fg = C.blue },
+  WhichKeyGroup = { fg = C.blue },
+  -- }}}
+
+  -- SymbolsOutline {{{
+  FocusedSymbol = { fg = C.yellow, bg = C.none },
+  -- }}}
+}
+
+return others

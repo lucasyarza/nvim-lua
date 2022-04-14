@@ -258,6 +258,20 @@ return packer.startup(function(use)
     end,
   })
 
+  -- Better buffer closing
+  use({
+    'moll/vim-bbye',
+  })
+
+  -- Cursorhold fix
+  use({
+    'antoinemadec/FixCursorHold.nvim',
+    event = { 'BufRead', 'BufNewFile' },
+    config = function()
+      vim.g.cursorhold_updatetime = 100
+    end,
+  })
+
   use('morhetz/gruvbox')
   use('euclidianAce/BetterLua.vim')
   use('rafcamlet/nvim-luapad')

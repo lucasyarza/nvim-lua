@@ -10,10 +10,9 @@ vim.cmd('colorscheme gruvbox')
 local util = require('colors.util')
 
 local modules = {
-  -- 'base',
   'treesitter',
   'lsp',
-  -- 'others',
+  'others',
 }
 
 local highlights = {}
