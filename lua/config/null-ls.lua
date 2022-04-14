@@ -22,7 +22,7 @@ function M.config()
       formatting.trim_newlines,
       formatting.trim_whitespace,
       -- Set a linter
-      diagnostics.rubocop,
+      diagnostics.selene,
     },
     -- NOTE: You can remove this on attach function to disable format on save
     on_attach = function(client)
