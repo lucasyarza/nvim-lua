@@ -1,4 +1,6 @@
-vim.opt.rtp:append(vim.fn.stdpath "config")
+-- vim.opt.rtp:append(vim.fn.stdpath "config")
+vim.g.nvim_data_root = vim.fn.stdpath('data')
+vim.g.nvim_config_root = vim.fn.stdpath('config')
 
 local sources = {
   "nvim-plugins.plugins",
