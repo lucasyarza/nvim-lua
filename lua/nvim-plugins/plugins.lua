@@ -205,6 +205,11 @@ return require('packer').startup(function(use)
     end,
   }
 
+  use {
+    'mg979/vim-visual-multi',
+    branch = 'master'
+  }
+
   use 'morhetz/gruvbox'
   use 'euclidianAce/BetterLua.vim'
 end)
