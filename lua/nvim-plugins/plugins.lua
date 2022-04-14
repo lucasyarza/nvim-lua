@@ -6,40 +6,40 @@ end
 return packer.startup(function(use)
   -- Global {{{
   -- Packer can manage itself
-  use 'wbthomason/packer.nvim'
+  use('wbthomason/packer.nvim')
 
   -- Lua functions
-  use 'nvim-lua/plenary.nvim'
+  use('nvim-lua/plenary.nvim')
   -- }}}
 
   -- UI {{{
   -- Neovim UI Enhancer
-  use 'MunifTanjim/nui.nvim'
+  use('MunifTanjim/nui.nvim')
 
   -- Icons {{{
-  use {
+  use({
     'kyazdani42/nvim-web-devicons',
     config = function()
       require('config.devicons').config()
     end,
-  }
+  })
   -- }}}
 
   -- Lualine {{{
-  use {
+  use({
     'nvim-lualine/lualine.nvim',
     requires = { 'kyazdani42/nvim-web-devicons', opt = true },
     config = function()
       require('config.lualine').config()
     end,
-  }
+  })
   -- }}}
 
   -- Tabular
-  use 'godlygeek/tabular'
+  use('godlygeek/tabular')
 
   -- File explorer
-  use {
+  use({
     'nvim-neo-tree/neo-tree.nvim',
     branch = 'v2.x',
     requires = {
@@ -50,201 +50,215 @@ return packer.startup(function(use)
     config = function()
       require('config.neo-tree').config()
     end,
-  }
+  })
 
   -- Smarter Splits
-  use {
+  use({
     'mrjones2014/smart-splits.nvim',
     config = function()
       require('config.smart-splits').config()
     end,
-  }
+  })
   -- }}}
 
   -- Treesitter {{{
   -- Syntax highlighting
-  use {
+  use({
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate',
     config = function()
       require('config.treesitter').config()
     end,
-  }
+  })
 
   -- Parenthesis highlighting
-  use {
+  use({
     'p00f/nvim-ts-rainbow',
     require = 'nvim-treesitter',
-  }
+  })
 
   -- Autoclose tags
-  use {
+  use({
     'windwp/nvim-ts-autotag',
     require = 'nvim-treesitter',
-  }
+  })
 
-  use {
+  use({
     'JoosepAlviste/nvim-ts-context-commentstring',
     require = 'nvim-treesitter',
-  }
+  })
 
   -- Commenting
-  use {
+  use({
     'numToStr/Comment.nvim',
     event = { 'BufRead', 'BufNewFile' },
     config = function()
       require('config.comment').config()
     end,
-  }
+  })
 
   -- Autopairs
-  use {
+  use({
     'windwp/nvim-autopairs',
     event = 'InsertEnter',
     config = function()
       require('config.autopairs').config()
     end,
-  }
+  })
   -- }}}
 
   -- Completion engine {{{
   -- Completion engine
-  use {
+  use({
     'hrsh7th/nvim-cmp',
     config = function()
       require('config.cmp').config()
     end,
-  }
+  })
 
-  use {
+  use({
     'tzachar/cmp-tabnine',
     run = './install.sh',
     requires = 'hrsh7th/nvim-cmp',
     config = function()
       require('config.cmp-tabnine').config()
     end,
-  }
+  })
 
-  use 'onsails/lspkind-nvim'
+  use('onsails/lspkind-nvim')
 
   -- Buffer completion source
-  use {
+  use({
     'hrsh7th/cmp-buffer',
     requires = 'nvim-cmp',
-  }
+  })
 
   -- Path completion source
-  use {
+  use({
     'hrsh7th/cmp-path',
     requires = 'nvim-cmp',
-  }
+  })
 
   -- LSP completion source
-  use {
+  use({
     'hrsh7th/cmp-nvim-lsp',
     requires = 'nvim-cmp',
-  }
+  })
   --}}}
 
   -- Language Server Protocol {{{
   -- LSP manager
-  use 'williamboman/nvim-lsp-installer'
+  use('williamboman/nvim-lsp-installer')
 
   -- Built-in LSP && LSP manager
-  use {
+  use({
     'neovim/nvim-lspconfig',
     config = function()
-      require 'config.lsp'
+      require('config.lsp')
     end,
-  }
+  })
 
   -- LSP symbols
-  use {
+  use({
     'simrat39/symbols-outline.nvim',
     cmd = 'SymbolsOutline',
-  }
+  })
   -- }}}
 
   -- Snippets {{{
   -- Snippet collection
-  use {
+  use({
     'rafamadriz/friendly-snippets',
     require = 'nvim-cmp',
-  }
+  })
 
   -- Snippet engine
-  use {
+  use({
     'L3MON4D3/LuaSnip',
     require = 'friendly-snippets',
     config = function()
       require('config.luasnip').config()
     end,
-  }
+  })
 
   -- Snippet completion source
-  use {
+  use({
     'saadparwaiz1/cmp_luasnip',
     require = 'nvim-cmp',
-  }
+  })
   -- }}}
 
   -- Git integration
-  use {
+  use({
     'lewis6991/gitsigns.nvim',
     event = { 'BufRead', 'BufNewFile' },
     config = function()
       require('config.gitsigns').config()
     end,
-  }
+  })
 
   -- Indentation
-  use {
+  use({
     'lukas-reineke/indent-blankline.nvim',
     config = function()
       require('config.indent-line').config()
     end,
-  }
+  })
 
-  use {
+  use({
     'mg979/vim-visual-multi',
     branch = 'master',
-  }
+  })
 
   -- Terminal
-  use {
+  use({
     'akinsho/nvim-toggleterm.lua',
     cmd = 'ToggleTerm',
     config = function()
       require('config.toggleterm').config()
     end,
-  }
+  })
 
-  use {
+  use({
     'jose-elias-alvarez/null-ls.nvim',
     event = { 'BufRead', 'BufNewFile' },
     requires = { 'nvim-lua/plenary.nvim' },
     config = function()
       require('config.null-ls').config()
     end,
-  }
+  })
 
-  use {
+  use({
     'j-hui/fidget.nvim',
     config = function()
-      require('fidget').setup {}
+      require('fidget').setup({})
     end,
-  }
+  })
 
   -- Color highlighting
-  use {
+  use({
     'norcalli/nvim-colorizer.lua',
     event = { 'BufRead', 'BufNewFile' },
     config = function()
       require('config.colorizer').config()
     end,
-  }
+  })
 
-  use 'morhetz/gruvbox'
-  use 'euclidianAce/BetterLua.vim'
-  use 'rafcamlet/nvim-luapad'
+  -- Fuzzy finder
+  use({
+    'nvim-telescope/telescope.nvim',
+    cmd = 'Telescope',
+    module = 'telescope',
+    requires = {
+      'nvim-lua/plenary.nvim',
+      { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
+    },
+    config = function()
+      require('config.telescope').config()
+    end,
+  })
+
+  use('morhetz/gruvbox')
+  use('euclidianAce/BetterLua.vim')
+  use('rafcamlet/nvim-luapad')
 end)
