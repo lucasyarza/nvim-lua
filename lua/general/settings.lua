@@ -8,7 +8,6 @@ set.colorcolumn = '99999' -- Fix for the indentline problem
 set.completeopt = { 'menuone', 'noinsert', 'noselect' } -- Options for insert mode completion
 set.cursorline = true -- Highlight the text line of the cursor
 set.expandtab = true -- Enable the use of space in tab
-set.expandtab = true -- Enable the use of space in tab
 set.fileencoding = 'utf-8' -- File content encoding for the buffer
 set.fillchars = { eob = ' ' } -- Disable `~` on nonexistent lines
 set.hidden = true -- Ignore unsaved buffers

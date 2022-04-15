@@ -121,6 +121,12 @@ local others = {
   IndentBlanklineContextStart = { fg = C.grey, style = 'underline' },
   IndentBlanklineContextChar = { fg = C.grey, style = 'nocombine' },
   IndentBlanklineSpaceCharBlankline = { fg = C.grey, style = 'nocombine' },
+  IndentBlanklineIndent1 = { fg = C.cyan },
+  IndentBlanklineIndent2 = { fg = C.yellow },
+  IndentBlanklineIndent3 = { fg = C.green },
+  IndentBlanklineIndent4 = { fg = C.blue },
+  IndentBlanklineIndent5 = { fg = C.purple },
+  IndentBlanklineIndent6 = { fg = C.orange },
   -- }}}
 
   -- GitSigns {{{

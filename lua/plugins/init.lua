@@ -306,6 +306,7 @@ return packer.startup(function(use)
   use('morhetz/gruvbox')
   use('euclidianAce/BetterLua.vim')
   use('rafcamlet/nvim-luapad')
+  use('nvim-treesitter/playground')
 
   if Packer_bootstrap then
     require('packer').sync()
