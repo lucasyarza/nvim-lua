@@ -28,8 +28,10 @@ map('n', '<A-k>', "<cmd>lua require'smart-splits'.resize_up(2)<cr>", opts)
 map('n', '<A-l>', "<cmd>lua require'smart-splits'.resize_right(2)<cr>", opts)
 
 -- Buffer
-map('n', '<leader><tab>', '<cmd>bnext<CR>', opts)
-map('n', '<leader><S-tab>', '<cmd>bprevious<CR>', opts)
+-- map('n', '<leader><tab>', '<cmd>bnext<CR>', opts)
+-- map('n', '<leader><S-tab>', '<cmd>bprevious<CR>', opts)
+map('n', '<c-s>', '<cmd>bnext<CR>', opts)
+map('n', '<c-a>', '<cmd>bprevious<CR>', opts)
 
 -- Neotree
 map('n', '<leader>e', '<cmd>Neotree toggle<CR>', opts)
