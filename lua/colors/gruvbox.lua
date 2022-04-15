@@ -24,3 +24,7 @@ local colors = {
 }
 
 return colors
+
+-- lualine_b_normal xxx guifg=#ebdbb2 guibg=#504945
+-- lualine_a_normal xxx gui=bold guifg=#282828 guibg=#a89984
+-- lualine_c_normal xxx guifg=#a89984 guibg=#3c3836

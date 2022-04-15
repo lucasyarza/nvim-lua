@@ -1,10 +1,15 @@
--- vim.opt.rtp:append(vim.fn.stdpath "config")
 vim.g.nvim_data_root = vim.fn.stdpath('data')
 vim.g.nvim_config_root = vim.fn.stdpath('config')
 
+local impatient_ok, impatient = pcall(require, 'impatient')
+if impatient_ok then
+  impatient.enable_profile()
+end
+
 local sources = {
-  'nvim-plugins.plugins',
+  'plugins',
   'general.settings',
+  'general.globals',
   'config.symbols-outline',
   'keymapping',
 }

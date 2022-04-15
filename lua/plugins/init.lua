@@ -21,9 +21,27 @@ return packer.startup(function(use)
   -- Packer can manage itself
   use('wbthomason/packer.nvim')
 
+  use('lewis6991/impatient.nvim')
+
+  -- Boost startup time
+  use({
+    'nathom/filetype.nvim',
+    config = function()
+      require('config.filetype').config()
+    end,
+  })
+
   -- Lua functions
   use('nvim-lua/plenary.nvim')
   -- }}}
+
+  -- Notification Enhancer
+  use({
+    'rcarriga/nvim-notify',
+    config = function()
+      require('config.notify').config()
+    end,
+  })
 
   -- UI {{{
   -- Neovim UI Enhancer
