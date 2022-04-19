@@ -303,6 +303,14 @@ return packer.startup(function(use)
     end,
   })
 
+  -- Start screen
+  use {
+    "glepnir/dashboard-nvim",
+    config = function()
+      require("config.dashboard").config()
+    end,
+  }
+
   use('morhetz/gruvbox')
   use('euclidianAce/BetterLua.vim')
   use('rafcamlet/nvim-luapad')
