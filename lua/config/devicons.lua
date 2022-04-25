@@ -37,11 +37,18 @@ function M.config()
     jpg = "#c882e7",
   }
 
+  icons.set_default_icon('', '#6d8086')
+
   icons.set_icon({
     c = {
       icon = "",
       color = colors.c,
       name = "c",
+    },
+    ino = {
+      icon = "",
+      color = colors.c,
+      name = "ino",
     },
     css = {
       icon = "",
@@ -182,6 +189,11 @@ function M.config()
       icon = "",
       color = colors.jpeg,
       name = "jpeg",
+    },
+    Makefile = {
+      icon = '',
+      color = colors.js,
+      name = 'Makefile',
     },
   })
 end

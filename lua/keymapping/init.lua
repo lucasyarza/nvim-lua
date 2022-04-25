@@ -69,6 +69,7 @@ map('n', '<leader>lD', '<cmd>Telescope diagnostics<CR>', opts)
 
 -- ToggleTerm
 map('n', '<leader>t', '<cmd>ToggleTerm<cr>', opts)
+map('n', '<C-x>', '<cmd>ToggleTerm<cr>', opts)
 map('n', '<leader>tf', '<cmd>ToggleTerm direction=float<cr>', opts)
 map('n', '<leader>th', '<cmd>ToggleTerm size=10 direction=horizontal<cr>', opts)
 map('n', '<leader>tv', '<cmd>ToggleTerm size=80 direction=vertical<cr>', opts)

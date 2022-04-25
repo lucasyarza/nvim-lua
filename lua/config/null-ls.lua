@@ -19,8 +19,9 @@ function M.config()
     sources = {
       -- Set a formatter
       formatting.stylua,
-      formatting.trim_newlines,
-      formatting.trim_whitespace,
+      formatting.trim_newlines.with({disabled_filetypes = { "cpp" },}),
+      formatting.trim_whitespace.with({disabled_filetypes = { "cpp" },}),
+      formatting.shfmt,
       -- Set a linter
       -- diagnostics.selene,
     },
